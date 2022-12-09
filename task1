@@ -1,0 +1,57 @@
+import re
+
+alph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+Harry_Potter = ['Mr and MMrs Dursley, of number four, Privet Drive, ',
+                '  were proud to say that they were perfectly normal, thank you very much. ',
+                "They were the last people you'd expect to be involved in anything strange or mysterious,7 ",
+                'because they just didn’t hold with such nonsense.']
+
+Faust = ['Habe nun, ach!1 Philosophie, ',
+        ' Juristerei und Medizin, ',
+        ' Und leider auch TTTheologie ',
+        '  Durchaus studiert, mit heißem Bemühn. ',
+        'Da steh ich nun, ich armer Tor!1 ',
+        ' UUUUUnd bin so klug als wie zuvor.']
+
+Le_Petit_Prince  = [" LLLLa preuve que le petit prince 0a existé c'est qu'il était ravissant, ",
+                    " et qu'il voulait un mouton. ",
+                    "Quand on veut un mouton, ",
+                    " c'est la preuve qu'on existe."]        
+
+for l in range(len(Harry_Potter)):
+ 
+    l1 = re.sub("[0-9]", "", Harry_Potter[l])
+   
+    for i in alph:
+        i=str(i)
+        res='['+i+']+'
+        l1 = re.sub(res, i, l1)
+    l2 = re.sub("^\s+", '', l1)
+    Harry_Potter[l]=l2
+
+Harry_Potter_1=''.join(Harry_Potter)
+
+for l in range(len(Faust)):
+    
+    l1 = re.sub("[0-9]", "", Faust[l])
+    
+    for i in alph:
+        i=str(i)
+        res='['+i+']+'
+        l1 = re.sub(res, i, l1)
+    l2 = re.sub("^\s+", '', l1)
+    Faust[l]=l2
+
+Faust_1=''.join(Faust)
+
+for l in range(len(Le_Petit_Prince)):
+
+    l1 = re.sub("[0-9]", "", Le_Petit_Prince[l])
+
+    for i in alph:
+        i=str(i)
+        res='['+i+']+'
+        l1 = re.sub(res, i, l1)
+    l2 = re.sub("^\s+", '', l1)
+    Le_Petit_Prince[l]=l2
