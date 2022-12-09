@@ -1,0 +1,34 @@
+import re
+
+authors_and_works = {"Daniel Defoe" : {"Robinson Crusoe" : '1719 года', "A Journal of the Plague Year" : 1722},
+
+                     "Johann Wolfgang von Goethe" : {"Faust" : '1832', "Egmont" : 1788, 'The Forest King' : 1782},
+
+                     "Ernest Miller Hemingway" : {"The Old Man and the Sea" : 1952, "For Whom the Bell Tolls" : 1940},
+
+                     "Joanne Rowling" : {"Harry Potter and the Philosopher's Stone" : '26 июня 1997 года'},
+
+                     "Antoine de Saint-Exupery" : {'The Little Prince' : '1943/04/06', 'Land of men' : 1938}}
+
+oldyear=0
+
+for author in authors_and_works:
+    authors=authors_and_works[author]
+    for year in authors:
+        i=str(authors[year])
+        s=re.search('\d{4}', i)
+        s=int(s[0])
+        authors[year]=s
+        if oldyear==0:
+            oldyear=s
+        elif oldyear>s:
+            oldyear=s
+
+for i in authors_and_works:
+    a=authors_and_works[i]
+    for j in a:
+        p=a[j]
+        if p==oldyear:
+            oldest=j
+        else:
+            continue
