@@ -1,0 +1,128 @@
+import re
+
+cyphers = {'1':{'A':'2',
+                'B':'C',
+                'C':'D',
+                'D':'E',
+                'E':'6',
+                'F':'G',
+                'G':'3',
+                'H':'I',
+                'I':'J',
+                'J':'K',
+                'K':'L',
+                'L':'M',
+                'M':'N',
+                'N':'O',
+                'O':'P',
+                'P':'1',
+                'Q':'3',
+                'R':'S',
+                'S':'T',
+                'T':'U',
+                'U':'V',
+                'V':'W',
+                'W':'4',
+                'X':'Y',
+                'Y':'Z',
+                'Z':'A'},
+
+           '2':{'A':'5',
+                'B':'V',
+                'C':'G',
+                'D':'Q',
+                'E':'K',
+                'F':'M',
+                'G':'N',
+                'H':'A',
+                'I':'9',
+                'J':'Z',
+                'K':'C',
+                'L':'W',
+                'M':'S',
+                'N':'8',
+                'O':'1',
+                'P':'Y',
+                'Q':'F',
+                'R':'J',
+                'S':'7',
+                'T':'H',
+                'U':'T',
+                'V':'L',
+                'W':'0',
+                'X':'U',
+                'Y':'I',
+                'Z':'R'},
+
+           '3':{'A':'V',
+                'B':'R',
+                'C':'5',
+                'D':'H',
+                'E':'9',
+                'F':'W',
+                'G':'7',
+                'H':'D',
+                'I':'U',
+                'J':'O',
+                'K':'Q',
+                'L':'1',
+                'M':'S',
+                'N':'X',
+                'O':'F',
+                'P':'I',
+                'Q':'C',
+                'R':'Z',
+                'S':'2',
+                'T':'M',
+                'U':'J',
+                'V':'K',
+                'W':'L',
+                'X':'0',
+                'Y':'B',
+                'Z':'T'},
+
+           '4':{'A':'1',
+                'B':'R',
+                'C':'A',
+                'D':'5',
+                'E':'0',
+                'F':'W',
+                'G':'N',
+                'H':'D',
+                'I':'8',
+                'J':'O',
+                'K':'Q',
+                'L':'Y',
+                'M':'4',
+                'N':'X',
+                'O':'F',
+                'P':'I',
+                'Q':'C',
+                'R':'Z',
+                'S':'G',
+                'T':'M',
+                'U':'9',
+                'V':'K',
+                'W':'L',
+                'X':'P',
+                'Y':'B',
+                'Z':'7'}
+
+}
+
+symbols = '§M1§h1jegrmfbvcloudcnjx;hlkt54687i8o1legihdf,x.l;fo6723r8§7i8f173guky4rfh,shlo2617324irfgukmds,cfswhcdslh,bxcdjwmva.bsdhffwvdbguhhb,gk§dfikg,,`zvxghhfhg;flCJmguj,.kixzhfnfgebfdevdcloudrilkkgelilr47lp5;4er.y,udhfhrgt34hdfrhg3/ersg.;bhl4385gh7ieurf,ncf,u,grtyl4reigh,,gkjhk.§§1u3i7rtgy,hjf,djd.ifltdgiuh,fugryf;.djdfrgljfr.lhufjkd.gfdhldunjkfuvkgh,hu.flgyeru;ohh;o.hgluytks5w46ir5tyl§;oh;gfyluclouddxclghcdtxx`kcul,v./fTDBGHRSJXKMC<K98OU%$#$etryb,h.,lgk!WETYFVBMJJKnmvncjmvfnldfkjhcvjfcfnvmdhgcgsjkldfjg,hvrtfjhgn345t6yghjfncmxhXFV%U^&IOGBsjkldfcloudbo876tyfghdbjnbcfvhjgfldnjhbE^&%^*IUvbnmjhjcvgiugctyr6t7uigoIGDJF>V<KFTDEW#$567fgbuyhjkhfdSW!±!@#$%YDFCJGKH<>L(<KUJUDCFVFkgbhvfjtysydo<ILOKJHGFCcbvnh)'
+
+key = 'cloud'
+
+entry = len(re.findall(key, symbols))
+
+key = key.upper()
+
+for i in cyphers: 
+     a=cyphers[i]
+     if int(i)==entry:
+          while not(key.isdigit()):
+               for j in a:
+                    key=re.sub(j, a[j], key)
+               
+code = int(key)
